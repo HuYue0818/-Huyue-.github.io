@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致石依蘅的表白</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            opacity: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e74c3c' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 10s linear infinite;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .memory-box {
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x, 100vw), var(--y, -100vh)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>石依蘅，我喜欢你</h1>
+        <p>自从遇见你的那一天起，我的世界便有了不同的色彩。</p>
+        <p>喜欢你的<span class="highlight">温柔</span>，喜欢你的<span class="highlight">笑容</span>，喜欢和你在一起的每一刻。</p>
+        <p>每一次与你相遇，都让我心动不已。你是我生命中最美丽的意外。</p>
+        <p>石依蘅，我想告诉你，<span class="highlight">我真的很喜欢你</span>。希望能够有机会牵着你的手，一起走过未来的每一天。</p>
+        
+        <div>
+            <button class="btn" id="loveBtn">我也喜欢你</button>
+            <button class="btn" id="thinkBtn" style="background-color: #3498db;">让我考虑一下</button>
+        </div>
+        
+        <div class="gallery">
+            <div class="memory-box">我们的第一次见面</div>
+            <div class="memory-box">一起看的第一场电影</div>
+            <div class="memory-box">和你共度的美好时光</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 创建漂浮的爱心
+            for (let i = 0; i < 20; i++) {
+                createHeart();
+            }
+            
+            // 按钮事件
+            document.getElementById('loveBtn').addEventListener('click', () => {
+                alert('❤️ 太棒了！我是世界上最幸福的人！❤️');
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createHeart();
+                    }, i * 100);
+                }
+            });
+            
+            document.getElementById('thinkBtn').addEventListener('click', () => {
+                alert('我会等你的答复，不论多久 ❤️');
+            });
+        });
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            // 随机位置和运动方向
+            const startX = Math.random() * window.innerWidth;
+            const endX = startX + (Math.random() - 0.5) * window.innerWidth;
+            const endY = -window.innerHeight;
+            
+            heart.style.setProperty('--x', `${endX}px`);
+            heart.style.setProperty('--y', `${endY}px`);
+            
+            heart.style.left = `${startX}px`;
+            heart.style.bottom = '0';
+            
+            // 随机大小和动画持续时间
+            const size = 20 + Math.random() * 30;
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            
+            const duration = 5 + Math.random() * 10;
+            heart.style.animationDuration = `${duration}s`;
+            
+            document.body.appendChild(heart);
+            
+            // 动画结束后移除元素
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+    </script>
+</body>
+</html>
